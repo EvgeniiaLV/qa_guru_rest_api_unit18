@@ -54,3 +54,9 @@ tasks.withType(Test) {
     useJUnitPlatform()
     systemProperties(System.getProperties())
 }
+
+task practiceForm(type: Test) {
+    useJUnitPlatform {
+        includeTags("bookStore")
+    }
+}

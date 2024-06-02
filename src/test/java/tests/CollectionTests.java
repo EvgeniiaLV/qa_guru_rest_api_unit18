@@ -6,6 +6,7 @@ import config.App;
 import helpers.extensions.WithLogin;
 import models.lombok.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.ProfilePage;
 
@@ -14,6 +15,7 @@ import java.util.List;
 
 import static io.qameta.allure.Allure.step;
 
+@Tag("bookStore")
 public class CollectionTests extends TestBase {
     BooksApi booksApi = new BooksApi();
     AuthorizationApi authorizationApi = new AuthorizationApi();
