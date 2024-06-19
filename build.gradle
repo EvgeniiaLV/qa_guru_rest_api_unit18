@@ -60,4 +60,5 @@ task bookStore(type: Test) {
     useJUnitPlatform {
         includeTags("bookStore")
     }
+    systemProperties(System.getProperties())
 }
