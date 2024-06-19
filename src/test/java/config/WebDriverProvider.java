@@ -20,7 +20,7 @@ public class WebDriverProvider {
 
         Configuration.pageLoadStrategy = "eager";
 
-        if (System.getProperty("env") == "remote") {
+        if (System.getProperty("env").equalsIgnoreCase("remote")) {
             Configuration.remote = "https://user1:1234@" + config.getRemoteDriverURL() + "/wd/hub";
         }
 
