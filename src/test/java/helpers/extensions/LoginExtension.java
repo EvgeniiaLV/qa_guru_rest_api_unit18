@@ -1,7 +1,7 @@
 package helpers.extensions;
 
 import api.authorization.AuthorizationApi;
-import config.App;
+import config.WebDriverProvider;
 import io.qameta.allure.Step;
 import models.lombok.LoginRequestModel;
 import models.lombok.LoginResponseModel;
@@ -17,7 +17,7 @@ public class LoginExtension implements BeforeEachCallback {
     @Step("User login --> setting cookies")
     public void beforeEach(ExtensionContext context) {
         AuthorizationApi authorizationApi = new AuthorizationApi();
-        LoginResponseModel authResponse = authorizationApi.userLogin(new LoginRequestModel(App.config.userLogin(), App.config.userPassword()));
+        LoginResponseModel authResponse = authorizationApi.userLogin(new LoginRequestModel(WebDriverProvider.authConfig.getUserLogin(), WebDriverProvider.authConfig.getUserPassword()));
 
         open("/favicon.ico");
         getWebDriver().manage().addCookie(new Cookie("userID", authResponse.getUserId()));

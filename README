@@ -1,0 +1,2 @@
+How to launch the tests via terminal:
+gradle clean test -Denvironment=remote

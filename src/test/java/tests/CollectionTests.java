@@ -2,7 +2,7 @@ package tests;
 
 import api.authorization.AuthorizationApi;
 import api.authorization.BooksApi;
-import config.App;
+import config.WebDriverProvider;
 import helpers.extensions.WithLogin;
 import models.lombok.*;
 import org.junit.jupiter.api.DisplayName;
@@ -19,7 +19,7 @@ import static io.qameta.allure.Allure.step;
 public class CollectionTests extends TestBase {
     BooksApi booksApi = new BooksApi();
     AuthorizationApi authorizationApi = new AuthorizationApi();
-    LoginResponseModel authorizationResponse = authorizationApi.userLogin(new LoginRequestModel(App.config.userLogin(), App.config.userPassword()));
+    LoginResponseModel authorizationResponse = authorizationApi.userLogin(new LoginRequestModel(WebDriverProvider.authConfig.getUserLogin(), WebDriverProvider.authConfig.getUserPassword()));
     ProfilePage profilePage = new ProfilePage();
     IsbnModel isbn = new IsbnModel(TestData.BOOK_ISBN);
     List<IsbnModel> isbnList = new ArrayList<>();

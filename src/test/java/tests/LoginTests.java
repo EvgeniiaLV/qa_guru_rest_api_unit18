@@ -1,6 +1,6 @@
 package tests;
 
-import config.App;
+import config.WebDriverProvider;
 import io.restassured.response.Response;
 import models.lombok.LoginRequestModel;
 import org.junit.jupiter.api.Test;
@@ -17,7 +17,7 @@ import static specs.DemoQASpec.responseSpec200;
 public class LoginTests extends TestBase {
     @Test
     void successfulLoginWithApiTest() {
-        LoginRequestModel userLoginData = new LoginRequestModel(App.config.userLogin(), App.config.userPassword());
+        LoginRequestModel userLoginData = new LoginRequestModel(WebDriverProvider.authConfig.getUserLogin(), WebDriverProvider.authConfig.getUserPassword());
         Response authResponse = given(loginUserRequestSpec)
                 .body(userLoginData)
                 .when()
