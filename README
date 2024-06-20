@@ -1,2 +1,2 @@
-How to launch the tests via terminal:
-gradle clean test
+How to launch the tests via terminal (example):
+gradle clean test -Denv="remote"
